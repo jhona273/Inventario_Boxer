@@ -1,0 +1,13 @@
+# .gitignore
+# Archivos y carpetas que NO queremos que Git guarde ni suba a GitHub.
+
+# Tu configuración real de base de datos (usuario, clave). Nunca a git.
+config.php
+
+# Archivos temporales de Windows y del editor
+Thumbs.db
+.DS_Store
+*.log
+
+# Carpeta de VS Code (configuración personal del editor, no del proyecto)
+.vscode/

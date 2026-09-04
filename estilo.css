@@ -1,0 +1,163 @@
+/* estilo.css */
+:root {
+  --bg: #14171c;
+  --panel: #1b1f26;
+  --panel-alt: #20242c;
+  --borde: #2b3038;
+  --texto: #e8e6df;
+  --texto-tenue: #9aa0aa;
+  --acento: #e3b23c;
+  --acento-oscuro: #b8871f;
+  --alerta: #d97757;
+  --entrada-texto: #8fc9a0;
+  --radio: 6px;
+  --fuente: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--fuente);
+  line-height: 1.5;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 26px;
+  border-bottom: 1px solid var(--borde);
+  background: linear-gradient(180deg, var(--panel), var(--bg));
+}
+.topbar h1 { margin: 0; font-size: 19px; font-weight: 600; }
+
+.topbar__stats { display: flex; gap: 24px; }
+.stat { display: flex; flex-direction: column; align-items: flex-end; }
+.stat__num { font-family: var(--mono); font-size: 20px; font-weight: 600; }
+.stat__label { font-size: 11px; color: var(--texto-tenue); }
+.stat--warn .stat__num { color: var(--alerta); }
+
+.contenido {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 22px 24px 60px;
+}
+
+.mensaje {
+  padding: 10px 14px;
+  border-radius: var(--radio);
+  margin-bottom: 16px;
+  font-size: 13.5px;
+}
+.mensaje--error {
+  background: rgba(217, 119, 87, 0.15);
+  color: var(--alerta);
+  border: 1px solid var(--alerta);
+}
+
+.buscador {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.buscador input[type="search"] {
+  flex: 1;
+  max-width: 380px;
+  background: var(--panel-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 9px 10px;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+.tabla th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--texto-tenue);
+  font-size: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borde);
+}
+.tabla td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borde);
+  vertical-align: middle;
+}
+.tabla tr:last-child td { border-bottom: none; }
+.tabla tr.fila--bajo td:first-child { box-shadow: inset 3px 0 0 var(--alerta); }
+
+.cantidad-num { font-family: var(--mono); font-size: 15px; display: block; margin-bottom: 5px; }
+.cantidad-num.bajo { color: var(--alerta); }
+
+.form-mov { display: flex; gap: 5px; align-items: center; }
+.form-mov input[type="number"] {
+  width: 52px;
+  background: var(--panel-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 6px 7px;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 13px;
+}
+.form-mov .btn--fila { padding: 6px 10px; }
+
+.btn {
+  border: none;
+  border-radius: var(--radio);
+  padding: 8px 12px;
+  font-size: 12.5px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn--fila {
+  background: var(--panel-alt);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+}
+.btn--fila:hover { border-color: var(--acento-oscuro); }
+
+.btn--secundario {
+  background: transparent;
+  color: var(--texto-tenue);
+  border: 1px solid var(--borde);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn--secundario:hover { color: var(--texto); }
+
+.vacio { text-align: center; color: var(--texto-tenue); padding: 20px; }
+
+@media (max-width: 700px) {
+  .topbar { padding: 16px; }
+  .contenido { padding: 16px; }
+  .tabla, .tabla thead, .tabla tbody, .tabla th, .tabla td, .tabla tr { display: block; }
+  .tabla thead { display: none; }
+  .tabla tr { border-bottom: 1px solid var(--borde); padding: 10px 0; }
+  .tabla td { border-bottom: none; padding: 4px 12px; }
+  .tabla td::before {
+    content: attr(data-label);
+    display: inline-block;
+    width: 100px;
+    color: var(--texto-tenue);
+    font-size: 11px;
+  }
+}
