@@ -146,6 +146,39 @@ body {
 
 .vacio { text-align: center; color: var(--texto-tenue); padding: 20px; }
 
+.panel-formulario {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 20px;
+}
+.panel-formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--texto-tenue);
+}
+.panel-formulario input[type="text"],
+.panel-formulario input[type="number"] {
+  background: var(--panel-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 9px 10px;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 14px;
+}
+.panel-formulario input:focus { outline: 2px solid var(--acento-oscuro); outline-offset: 1px; }
+.panel-formulario .btn--primario { align-self: flex-start; }
+
+.btn--primario { background: var(--acento); color: #1b1408; font-weight: 600; border: none; }
+.btn--primario:hover { background: #edc158; }
+
 @media (max-width: 700px) {
   .topbar { padding: 16px; }
   .contenido { padding: 16px; }

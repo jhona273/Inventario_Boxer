@@ -62,6 +62,7 @@ $stockBajo = count(array_filter($productos, function ($p) {
       <?php if ($buscar !== ''): ?>
         <a href="index.php" class="btn btn--secundario">Limpiar</a>
       <?php endif; ?>
+      <a href="agregar.php" class="btn btn--primario" style="margin-left:auto; text-decoration:none;">+ Nueva referencia</a>
     </form>
 
     <table class="tabla">
