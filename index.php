@@ -2,6 +2,7 @@
 // index.php
 // Página principal: muestra el inventario y deja disparar entradas/salidas.
 
+require 'auth.php'; // si no hay sesión activa, esto redirige a login.php y detiene todo lo demás
 require 'config.php';
 
 $buscar = $_GET['buscar'] ?? '';
@@ -46,6 +47,12 @@ $stockBajo = count(array_filter($productos, function ($p) {
       <div class="stat"><span class="stat__num"><?php echo $totalUnidades; ?></span><span class="stat__label">Unidades totales</span></div>
       <div class="stat"><span class="stat__num"><?php echo count($productos); ?></span><span class="stat__label">Referencias/tallas</span></div>
       <div class="stat stat--warn"><span class="stat__num"><?php echo $stockBajo; ?></span><span class="stat__label">Stock bajo</span></div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+        <span style="font-size:12px; color:var(--texto-tenue);">
+          <?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>
+        </span>
+        <a href="logout.php" class="btn btn--secundario" style="text-decoration:none; font-size:11px; padding:4px 8px;">Cerrar sesión</a>
+      </div>
     </div>
   </header>
 

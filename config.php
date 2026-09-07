@@ -6,9 +6,9 @@
 
 $host    = 'localhost';
 $db      = 'inventario_boxers';
-$usuario = 'root';   // usuario por defecto de XAMPP
-$clave   = '';       // XAMPP por defecto no le pone contraseña a root
-$charset = 'utf8mb4'; // para que tildes y ñ se guarden y lean bien
+$usuario = 'root';   // 
+$clave   = '';       // 
+$charset = 'utf8mb4'; // 
 
 // DSN = Data Source Name: le dice a PHP CÓMO y A QUÉ conectarse
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

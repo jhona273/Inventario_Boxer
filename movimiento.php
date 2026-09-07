@@ -3,6 +3,7 @@
 // Este archivo nunca lo ve el usuario directamente: solo recibe el POST
 // del formulario en index.php, hace el cálculo, y redirige de vuelta.
 
+require 'auth.php';
 require 'config.php';
 
 $producto_id = $_POST['producto_id'] ?? null;

@@ -3,6 +3,7 @@
 // Formulario para crear una referencia/talla nueva sin tener que
 // entrar a phpMyAdmin cada vez.
 
+require 'auth.php';
 require 'config.php';
 
 $error = '';
