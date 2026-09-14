@@ -1,8 +1,11 @@
 <?php
 // crear_usuario.php
-// Página TEMPORAL, solo para crear usuarios. Al final te digo por qué
-// conviene borrarla (o protegerla) después de usarla.
+// Ya NO es una página "de un solo uso": queda protegida con el login,
+// así que solo alguien que YA inició sesión puede crear cuentas nuevas.
+// (La primera vez tocó dejarla abierta porque no existía ningún usuario
+// todavía con quién iniciar sesión — ahora que ya tienes uno, la cerramos.)
 
+require 'auth.php';
 require 'config.php';
 
 $mensaje = '';
@@ -71,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <p style="font-size:12px; color:var(--texto-tenue); margin-top:16px;">
-      Recuerda borrar o proteger este archivo cuando termines de crear los usuarios que necesites.
+      Esta página ya está protegida: solo alguien con sesión iniciada puede verla.
     </p>
   </main>
 </body>

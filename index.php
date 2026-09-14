@@ -80,6 +80,7 @@ $stockBajo = count(array_filter($productos, function ($p) {
           <th>Talla</th>
           <th>Estantería</th>
           <th>Bodega</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -111,11 +112,15 @@ $stockBajo = count(array_filter($productos, function ($p) {
                 <button type="submit" name="tipo" value="salida" class="btn btn--fila">−</button>
               </form>
             </td>
+
+            <td data-label="">
+              <a href="editar.php?id=<?php echo $p['id']; ?>" class="btn btn--secundario" style="text-decoration:none;">Editar</a>
+            </td>
           </tr>
         <?php endforeach; ?>
 
         <?php if (count($productos) === 0): ?>
-          <tr><td colspan="5" class="vacio">No se encontraron productos.</td></tr>
+          <tr><td colspan="6" class="vacio">No se encontraron productos.</td></tr>
         <?php endif; ?>
       </tbody>
     </table>
