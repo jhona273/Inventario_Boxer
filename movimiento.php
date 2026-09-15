@@ -77,6 +77,8 @@ try {
     exit;
 }
 
-// Todo salió bien: volvemos al inventario para ver el cambio reflejado
-header('Location: index.php');
+// Todo salió bien: volvemos al inventario, pero directo a la fila donde
+// estabas trabajando (usando el "ancla" #producto-ID), en vez de mandarte
+// hasta arriba del todo.
+header('Location: index.php#producto-' . $producto_id);
 exit;

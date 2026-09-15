@@ -86,7 +86,7 @@ $stockBajo = count(array_filter($productos, function ($p) {
       <tbody>
         <?php foreach ($productos as $p): ?>
           <?php $bajo = ($p['cantidad_estanteria'] + $p['cantidad_bodega']) <= $p['cantidad_minima']; ?>
-          <tr class="<?php echo $bajo ? 'fila--bajo' : ''; ?>">
+          <tr id="producto-<?php echo $p['id']; ?>" class="<?php echo $bajo ? 'fila--bajo' : ''; ?>">
             <td data-label="Código"><?php echo htmlspecialchars($p['codigo']); ?></td>
             <td data-label="Descripción"><?php echo htmlspecialchars($p['descripcion']); ?></td>
             <td data-label="Talla"><?php echo htmlspecialchars($p['talla']); ?></td>
