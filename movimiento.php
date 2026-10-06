@@ -77,8 +77,12 @@ try {
     exit;
 }
 
-// Todo salió bien: volvemos al inventario, pero directo a la fila donde
-// estabas trabajando (usando el "ancla" #producto-ID), en vez de mandarte
-// hasta arriba del todo.
-header('Location: index.php#producto-' . $producto_id);
+// Todo salió bien: armamos un mensaje corto de confirmación
+$signo = $tipo === 'entrada' ? '+' : '−';
+$nombreUbicacion = $ubicacion === 'estanteria' ? 'Estantería' : 'Bodega';
+$mensajeOk = "{$producto['codigo']} talla {$producto['talla']}: {$signo}{$cantidad} en {$nombreUbicacion}";
+
+// Volvemos al inventario, directo a la fila donde estabas trabajando
+// (usando el "ancla" #producto-ID), con el mensaje de confirmación.
+header('Location: index.php?ok=' . urlencode($mensajeOk) . '#producto-' . $producto_id);
 exit;

@@ -51,7 +51,10 @@ $stockBajo = count(array_filter($productos, function ($p) {
         <span style="font-size:12px; color:var(--texto-tenue);">
           <?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>
         </span>
-        <a href="logout.php" class="btn btn--secundario" style="text-decoration:none; font-size:11px; padding:4px 8px;">Cerrar sesión</a>
+        <div style="display:flex; gap:6px;">
+          <a href="historial.php" class="btn btn--secundario" style="text-decoration:none; font-size:11px; padding:4px 8px;">Historial</a>
+          <a href="logout.php" class="btn btn--secundario" style="text-decoration:none; font-size:11px; padding:4px 8px;">Cerrar sesión</a>
+        </div>
       </div>
     </div>
   </header>
@@ -60,6 +63,12 @@ $stockBajo = count(array_filter($productos, function ($p) {
 
     <?php if (isset($_GET['error'])): ?>
       <p class="mensaje mensaje--error"><?php echo htmlspecialchars($_GET['error']); ?></p>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['ok'])): ?>
+      <p class="mensaje" style="background:rgba(143,201,160,0.15); color:#8fc9a0; border:1px solid #8fc9a0;">
+        Registrado: <?php echo htmlspecialchars($_GET['ok']); ?>
+      </p>
     <?php endif; ?>
 
     <form method="get" class="buscador">
